@@ -5,11 +5,14 @@ using UnityEngine;
 public class WASD_Script : MonoBehaviour
 {
     public float force = 0.1f;
-    //public KeyCode foward;
-    //public KeyCode back;
+    public KeyCode foward;
+    public KeyCode back;
     public KeyCode Left;
     public KeyCode Right;
     public KeyCode Jump;
+    //private float jumpforce = 10f;
+    //private float gravity = 15f;
+    private Vector3 moveDir = Vector3.zero;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
@@ -44,16 +47,16 @@ public class WASD_Script : MonoBehaviour
         }
         if (Input.GetKeyDown(Jump))
         {
-            if (transform.position.y <= 1.05f)
+            if (transform.position.y <= 10f)
             {
-                GetComponent<Rigidbody>().AddForce(Vector3.up * 2);
+                GetComponent<Rigidbody>().AddForce(Vector3.up * 3000);
             }
             hasInput = true;
         }
         if (!hasInput)
         {
             //rb.velocity = new Vector3(0, 0, 0);
-            rb.velocity = rb.velocity * 0.98f;
+            rb.velocity = rb.velocity * gravity;
         }
     }
 }
