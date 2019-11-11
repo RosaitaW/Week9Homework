@@ -10,9 +10,6 @@ public class WASD_Script : MonoBehaviour
     public KeyCode Left;
     public KeyCode Right;
     public KeyCode Jump;
-    //private float jumpforce = 10f;
-    //private float gravity = 15f;
-    private Vector3 moveDir = Vector3.zero;
     Rigidbody rb;
     // Start is called before the first frame update
     void Start()
